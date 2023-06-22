@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Detalle Producto (HProducto)</ion-title>
+    <ion-title>
+      Detalle Producto HProducto
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content padding>
+  <ion-item>
+    <ion-input type="text"  hidden [(ngModel)]="idHProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese la Cantidad" [(ngModel)]="cantidad"></ion-input>
+      <ion-input type="text" placeholder="Ingrese ID Producto" [(ngModel)]="IdProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese ID Carrito" [(ngModel)]="IdCarritoCompra"></ion-input>
+      <div class="item-note" item-end>
+          <ion-button (click)="addHProducto()">Agregar HProducto</ion-button>
+      </div>
+  </ion-item>
+<div padding>
+
+
+  <ion-list>
+    <ion-item *ngFor="let item of listHProducto">
+      {{item.cantidad}},{{item.idProducto}},{{item.idCarritoCompra}}
+        <div class="item-note" slot="end">
+          <ion-button  color="warning" >Editar</ion-button>
+          <ion-button size="small" color="danger" >Eliminar</ion-button>
+        </div>
+    </ion-item>
+</ion-list>
+
+</div>
 </ion-content>

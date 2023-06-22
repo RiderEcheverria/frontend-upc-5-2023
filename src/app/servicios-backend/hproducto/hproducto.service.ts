@@ -8,30 +8,34 @@ import { environment } from 'src/environments/environment';
 })
 export class HproductoService {
 
-  PATH_BACKEND = environment.URL_BACKEND + environment.PORT_BACKEND;
+  URL_BACKEND = "https://localhost";
+    PORT_BACKEND = ":7127";
 
-  URL_GET_HPRODUCTO = this.PATH_BACKEND + "/api/HProducto"
-  URL_GET_BY_ID = this.PATH_BACKEND + "/api/HProducto/GetHProductoById"
-  URL_ADD_HPRODUCTO = this.PATH_BACKEND + "/api/HProducto/AddHProducto"
+    PATH_BACKEND = this.URL_BACKEND + this.PORT_BACKEND;
 
+
+    URL_GET_HPRODUCTO = this.PATH_BACKEND + "/api/HProducto"
+    URL_GET_BY_ID = this.PATH_BACKEND + "/api/HProducto/GetHProductoById"
+    URL_ADD_HPRODUCTO = this.PATH_BACKEND + "/api/HProducto/AddHProducto"
   
-
-  constructor(private http: HttpClient) { }
-
-  public GetHProducto(): Observable<HttpResponse<any>> 
-  {
-    return this.http
-      .get<any>(this.URL_GET_HPRODUCTO,
-        { observe: 'response' })
-      .pipe();
+    
+  
+    constructor(private http: HttpClient) { }
+  
+    public GetHProducto(): Observable<HttpResponse<any>> 
+    {
+      return this.http
+        .get<any>(this.URL_GET_HPRODUCTO,
+          { observe: 'response' })
+        .pipe();
+    }
+  
+    public AddHProducto(entidad): Observable<HttpResponse<any>> 
+    {
+      return this.http
+        .post<any>(this.URL_ADD_HPRODUCTO, entidad,
+          { observe: 'response' })
+        .pipe();
+    }
+  
   }
-
-  public AddHProducto(entidad): Observable<HttpResponse<any>> 
-  {
-    return this.http
-      .post<any>(this.URL_ADD_HPRODUCTO, entidad,
-        { observe: 'response' })
-      .pipe();
-  }
-
-}
