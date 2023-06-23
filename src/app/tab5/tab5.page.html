@@ -4,7 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item>
+      <ion-input type="text" hidden [(ngModel)]="idCarritoCompra"></ion-input>
+      <ion-input type="text" placeholder="Ingrese idUsuarios" [(ngModel)]="idUsuarios"></ion-input>
 
-  
+      <div class="item-note" item-end>
+        <ion-button *ngIf="!swGuardarCambios" (click)="addCarritoCompra()">Agregar Carrito Compra</ion-button>
+      </div>
+  </ion-item>
+  <div padding>
+      <ion-list>
+          <ion-item *ngFor="let item of listCarritoCompra">
+              {{item.idUsuario}}
+              <div class="item-note" slot="end">
+                <ion-button  color="warning" >Editar</ion-button>
+                <ion-button size="small" color="danger" >Eliminar</ion-button>
+              </div>
+          </ion-item>
+      </ion-list>
+  </div>
+
 </ion-content>
