@@ -7,8 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductosService {
+    URL_BACKEND = "https://localhost";
+    PORT_BACKEND = ":7127";
 
-  PATH_BACKEND = environment.URL_BACKEND + environment.PORT_BACKEND;
+    PATH_BACKEND = this.URL_BACKEND + this.PORT_BACKEND;
 
   URL_GET_PRODUCTOS = this.PATH_BACKEND + "/api/Producto"
   URL_GET_BY_ID = this.PATH_BACKEND + "/api/Producto/GetProductoById"

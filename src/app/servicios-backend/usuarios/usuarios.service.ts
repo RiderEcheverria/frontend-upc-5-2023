@@ -8,7 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class UsuariosService {
 
-  PATH_BACKEND = environment.URL_BACKEND + environment.PORT_BACKEND;
+  URL_BACKEND = "https://localhost";
+  PORT_BACKEND = ":7127";
+
+  PATH_BACKEND = this.URL_BACKEND + this.PORT_BACKEND;
 
   URL_GET = this.PATH_BACKEND + "/api/Usuarios"
   URL_GET_BY_ID = this.PATH_BACKEND + "/api/Usuarios/GetById"

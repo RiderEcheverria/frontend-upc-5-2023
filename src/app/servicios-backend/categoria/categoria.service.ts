@@ -7,9 +7,10 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root'
 })
 export class CategoriaService {
+    URL_BACKEND = "https://localhost";
+    PORT_BACKEND = ":7127";
 
-    PATH_BACKEND = environment.URL_BACKEND + environment.PORT_BACKEND;
-
+    PATH_BACKEND = this.URL_BACKEND + this.PORT_BACKEND;
     URL_GET_CATEGORIA = this.PATH_BACKEND + "/api/Categoria"
     URL_GET_BY_ID_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/GetCategoriaById"
     URL_ADD_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/AddCategoria"
