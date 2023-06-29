@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Detalle Producto (HProducto)</ion-title>
+      <ion-title>
+          CRUD Platos
+      </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <ion-item>
+      <ion-input id="idPlatos" type="text" hidden [(ngModel)]="idPlatos"></ion-input>
+      <ion-input id="nombrePlatos" type="text" placeholder="Ingrese Platos" [(ngModel)]="nombrePlatos"></ion-input>
+     
+     
+      <ion-input id="precioPlatos" type="text" hidden [(ngModel)]="precioPlatos"></ion-input>
+      <ion-input id="precioPlatos" type="text" placeholder="Ingrese Precio" [(ngModel)]="precioPlatos"></ion-input>
+      <div class="item-note" item-end>
+        <ion-button id="agregarPlatos" *ngIf="!swGuardarCambios" (click)="addPlatos()">Agregar Platos</ion-button>
+            <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+      </div>
+  </ion-item>
+  <div padding>
+      <ion-list>
+          <ion-item *ngFor="let item of listPlatos">
+              {{item.id}} - {{item.nombre}}- {{item.precio}}
+              <div class="item-note" slot="end">
+                <ion-button id="updatePlatos{{item.id}}" color="warning" (click)="updatePlatos(item)">Editar</ion-button>
+                    <ion-button id="deletePlatos{{item.id}}" color="danger" (click)="deletePlatos(item)">Eliminar</ion-button>  
+              </div>
+          </ion-item>
+      </ion-list>
+  </div>
 </ion-content>
