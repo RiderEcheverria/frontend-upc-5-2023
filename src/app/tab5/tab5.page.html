@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Carrito Compra</ion-title>
+      <ion-title>
+          CRUD Ordenes
+      </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item>
+      <ion-input id="idOrdenes" type="text" hidden [(ngModel)]="idOrdenes"></ion-input>
 
+      <ion-input id="Platos_Id" type="text" placeholder="Ingrese Platos_Id" [(ngModel)]="Platos_Id"></ion-input>
+    
+
+      <ion-input id="CantidadOrdenes" type="text" placeholder="Ingrese Cantidad" [(ngModel)]="CantidadOrdenes"></ion-input>
+     
+      
+      <ion-input id="MesaOrdenes" type="text" placeholder="Ingrese Mesa" [(ngModel)]="MesaOrdenes"></ion-input>
+    
+     
+      <div class="item-note" item-end>
+        <ion-button id="agregarOrdenes" *ngIf="!swGuardarCambios" (click)="addOrdenes()">Agregar Ordenes</ion-button>
+            <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+      </div>
+  </ion-item>
+  <div padding>
+    <ion-list>
+        <ion-item *ngFor="let item of listOrdenes">
+            {{item.id}} - {{item.Platos_Id}} - {{item.cantidad}}- {{item.mesa}}
+            <div class="item-note" slot="end">
+              <ion-button id="updateOrdenes{{item.id}}" color="warning" (click)="updateOrdenes(item)">Editar</ion-button>
+                  <ion-button id="deleteOrdenes{{item.id}}" color="danger" (click)="deleteOrdenes(item)">Eliminar</ion-button>  
+            </div>
+        </ion-item>
+    </ion-list>
+</div>
 </ion-content>
